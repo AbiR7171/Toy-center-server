@@ -8,8 +8,6 @@ const port = process.env.PORT || 5000
 app.use(cors())
 app.use(express.json())
 
-// Toy-center
-// lc9koLm8mKrgztq7
 
 
 
@@ -27,7 +25,7 @@ const client = new MongoClient(uri, {
 async function run() {
   try {
     // Connect the client to the server	(optional starting in v4.7)
-    await client.connect();
+    // await client.connect();
 
     const database = client.db("Toy-center")
     const toyCollection = database.collection("Toys")
