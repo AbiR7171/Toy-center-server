@@ -41,7 +41,20 @@ async function run() {
         const result = await query.toArray()
         res.send(result)
     })
+ 
+    app.put("/toys/:id", async(req, res)=>{
 
+      console.log(req.body);
+      const id =req.params.id;
+      const query = {_id : new ObjectId(id)}
+      const options = { upsert: true };
+      const updateData = req.body;
+      const updateDoc = {
+        $set:{
+
+        }
+      }
+    })
    
 
     app.get("/toys/:id", async(req, res)=>{
