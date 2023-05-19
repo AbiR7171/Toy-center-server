@@ -51,9 +51,20 @@ async function run() {
       const updateData = req.body;
       const updateDoc = {
         $set:{
-
+          imageUrl: updateData.imageUrl,
+          toyName: updateData.toyName,
+          name: updateData.name,
+          email: updateData.email,
+          category: updateData.category,
+          price: updateData.price,
+          rating: updateData.rating,
+          quantity: updateData.quantity,
+          description: updateData.description
         }
+        
       }
+      const result = await toyCollection.updateOne(query, updateDoc, options)
+      res.send(result)
     })
    
 
