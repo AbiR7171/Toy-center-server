@@ -41,7 +41,8 @@ async function run() {
         const result = await query.toArray()
         res.send(result)
     })
- 
+
+
     app.put("/toys/:id", async(req, res)=>{
 
       console.log(req.body);
@@ -94,14 +95,14 @@ async function run() {
 
     })
 
-    app.get("/mytoyes", async(req, res)=>{
+    app.get("/mytoyesort", async(req, res)=>{
 
       let query ={}
       if(req.query?.email){
         query = {email : req.query.email}
       }
 
-      const result = await toyCollection.find(query).toArray()
+      const result = await toyCollection.find(query).sort({price:1}).toArray()
       res.send(result)
     })
    
