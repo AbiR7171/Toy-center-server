@@ -72,7 +72,7 @@ async function run() {
     app.get("/toys/:id", async(req, res)=>{
       const id = req.params.id;
       const cursor = {_id : new ObjectId(id)}
-      const result = await toyCollection.findOne(cursor)
+      const result = await toyCollection.findOne(cursor).toArray()
       res.send(result)
     })
     app.delete("/toys/:id" , async(req, res)=>{
